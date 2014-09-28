@@ -4,48 +4,50 @@ easy-pid-file
 ### Intro
 Easy management of the crucial file.pid with minimal impact on the code (no more than one line of code),
 with a little and easy implementation the goal of this library is to forget the file.pid management.
-Be careful with the path parameter,write a value path ('/run/mynodeprocess.pid'). if the path is not
+Pass a valid path parameter for your OS  ('/var/mynodeprocess.pid'), if the path is not
 valid or the process does NOT have the permission to that folder a ENOENT or EACCES raised.
 
 ### HOW it works
-When you use the requirement statement in the head of the file pass a valid path where to put the file with the name
+When you use the requirement statement in the head of the file pass a valid path. The path give the location
 of your pid file, example :
 
-    var pidfile = require('./easy-pin-file.js')('meteo.pid');
+    var pidfile = require('./easy-pid-file.js')('meteo.pid');
 
 this path put the meteo.pid file in the project folder.
-If you want to put the file .pid in folder like /run /var and so on on the OS be sure that your Node.js process
-granted the right privilege (otherwise a you give back a false and the file does NOT be create).
+
+If you want to put file.pid in system folders like '/run/..' '/var/..' and so on, be sure that your
+Node.js process granted the right privilege (otherwise you give back a false and the building of file.pid fails).
 
 ### example
-to use this module require and pass the path :
+to use this module use the require and pass the path for place your file.pid :
 
-    var pidfile = require('./easy-pin-file.js')('myprocess.pid');
+    var pidfile = require('./easy-pid-file.js')('myprocess.pid');
 
 and if you want handle the boolean returned :
 
-    var pidfile = require('./easy-pin-file.js')('myprocess.pid');
-    if(pidfile){
+    var pidfile = require('./easy-pid-file.js')('myprocess.pid');
+    if(pidfile.getState()){
       // true
     }else{
-      // false 
+      // false
     }
 
 
 ### true / false
 If the file is created in the path passed you can read the boolean value true with the getState() function :
 
-      var pidfile = require('./easy-pin-file.js')('meteo.pid');
+      var pidfile = require('./easy-pid-file.js')('meteo.pid');
       // use a custom if else clauses if you want manage this case  true / false
       pidfile.getState();
 
-a false value is returned only when raise an exception, tested for a ENOENT and EACCES excpetion. With
+a false value is returned only when raise an exception, tested for a ENOENT and EACCES excpetions. With
 a boolean value returned that catch all error you can use it without other complications.
 
 
 ### NO throw
-No throw and no error are launch from the module, only a silence true/false concerned all the
-operation involved in check the path create or rewrite the file. That's all !!
+No throw and no error are launched from the module, only a silence true/false concerned all the
+operation involved. That's all !!
 
 #### exists / no exists
-the library do NOT create new folder if is put in the path then throw an exception
+the library do NOT create new folder, if the path does NOT exists a false is returned and the file.pid
+won't be create. 
