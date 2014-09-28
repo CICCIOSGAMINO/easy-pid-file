@@ -1,5 +1,5 @@
 {
-  "name": "easy-pin-file",
+  "name": "easy-pid-file",
   "version": "1.0.0",
   "description": "easy file.pid managment for node.js process",
   "main": "index.js",
