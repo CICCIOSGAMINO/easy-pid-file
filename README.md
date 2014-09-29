@@ -18,6 +18,14 @@ this path put the meteo.pid file in the project folder.
 If you want to put file.pid in system folders like '/run/..' '/var/..' and so on, be sure that your
 Node.js process granted the right privilege (otherwise you give back a false and the building of file.pid fails).
 
+### methods
+You get only two methods you can use the getPath() and the getState() :
+
+    var pidfile = require('./easy-pid-file.js')('myfile.pid');
+    myfile.getPath();       // get you the path  you have inserted
+
+    myfile.getState();      // get you the state true(file creted) of false(NOPE)
+
 ### example
 to use this module use the require and pass the path for place your file.pid :
 
@@ -50,4 +58,4 @@ operation involved. That's all !!
 
 #### exists / no exists
 the library do NOT create new folder, if the path does NOT exists a false is returned and the file.pid
-won't be create. 
+won't be create.
