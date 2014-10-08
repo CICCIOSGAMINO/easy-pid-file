@@ -22,9 +22,10 @@ Node.js process granted the right privilege (otherwise you give back a false and
 You get only two methods you can use the getPath() and the getState() :
 
     var pidfile = require('./easy-pid-file.js')('myfile.pid');
-    myfile.getPath();       // get you the path  you have inserted
 
-    myfile.getState();      // get you the state true(file creted) of false(NOPE)
+    pidfile.getPath();       // get you the path  you have inserted
+
+    pidfile.getState();      // get you the status true(file creted) of false(NOPE)
 
 ### example
 to use this module use the require and pass the path for place your file.pid :
@@ -58,4 +59,7 @@ operation involved. That's all !!
 
 #### exists / no exists
 the library do NOT create new folder, if the path does NOT exists a false is returned and the file.pid
-won't be create.
+won't be create. The simplicity of this package give at you the responsibility to pass a valid
+path in the package call.
+
+That's it, that's all !! 

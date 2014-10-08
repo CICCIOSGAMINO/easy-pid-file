@@ -1,6 +1,6 @@
 {
   "name": "easy-pid-file",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "easy file.pid managment for node.js process",
   "main": "index.js",
   "directories": {
