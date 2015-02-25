@@ -9,11 +9,11 @@ valid or the process does NOT have the permission to that folder a ENOENT or EAC
 
 ### HOW it works
 When you use the requirement statement in the head of the file pass a valid path. The path give the location
-of your pid file, example :
+of your pid file, example (if you usign an meteo app)  :
 
-    var pidfile = require('./easy-pid-file.js')('meteo.pid');
+    var pidfile = require('easy-pid-file.js')('meteo.pid');
 
-this path put the meteo.pid file in the project folder.
+this path put the meteo.pid file in the project folder. Easy to use just a thin line of code !! 
 
 If you want to put file.pid in system folders like '/run/..' '/var/..' and so on, be sure that your
 Node.js process granted the right privilege (otherwise you give back a false and the building of file.pid fails).
@@ -21,7 +21,7 @@ Node.js process granted the right privilege (otherwise you give back a false and
 ### methods
 You get only two methods you can use the getPath() and the getState() :
 
-    var pidfile = require('./easy-pid-file.js')('myfile.pid');
+    var pidfile = require('easy-pid-file.js')('myfile.pid');
 
     pidfile.getPath();       // get you the path  you have inserted
 
@@ -30,11 +30,11 @@ You get only two methods you can use the getPath() and the getState() :
 ### example
 to use this module use the require and pass the path for place your file.pid :
 
-    var pidfile = require('./easy-pid-file.js')('myprocess.pid');
+    var pidfile = require('easy-pid-file.js')('myprocess.pid');
 
 and if you want handle the boolean returned :
 
-    var pidfile = require('./easy-pid-file.js')('myprocess.pid');
+    var pidfile = require('easy-pid-file.js')('myprocess.pid');
     if(pidfile.getState()){
       // true
     }else{
@@ -45,7 +45,7 @@ and if you want handle the boolean returned :
 ### true / false
 If the file is created in the path passed you can read the boolean value true with the getState() function :
 
-      var pidfile = require('./easy-pid-file.js')('meteo.pid');
+      var pidfile = require('easy-pid-file.js')('meteo.pid');
       // use a custom if else clauses if you want manage this case  true / false
       pidfile.getState();
 
