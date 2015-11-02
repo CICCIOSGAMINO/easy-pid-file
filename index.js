@@ -1,7 +1,8 @@
-module.exports = function(path){
+// index.js  - main file (be careful to manage the process.on)
+var fs = require('fs');
+var writed = true;
 
-    var fs = require('fs');
-    var writed = true;
+module.exports = function(path){
 
     // try/catch block to trap all exceptions (Sync)
     try{
